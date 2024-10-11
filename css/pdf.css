@@ -1,0 +1,499 @@
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+header {
+    background-color: #16a290;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Main content styles */
+main {
+    padding: 20px 0;
+}
+#uploadForm{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: auto;
+    gap: 15px;
+}
+.Pdf-Heading{
+    margin-top: 125px;
+    text-align: center;
+    margin-bottom:20px;
+    font-size: 20px;
+}
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#pdfList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pdf {
+    height: 155px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.pdf h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #16a290;
+}
+
+.pdf h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: #555;
+}
+
+.pdf p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.pdf-download {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #16a290;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.pdf-detailsbut {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: #16a290;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.pdf a:hover {
+    background-color: #76e1d3;
+}
+
+#pdfDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 40%;
+    margin: 115px auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#pdfDetails h2 {
+    color: #16a290;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#pdfDetails h3 {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#pdfDetails p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+#pdfDetails a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #16a290;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#pdfDetails a:hover {
+    background-color: #76e1d3;
+}
+
+
+#pdfDetails .download-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #16a290;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#pdfDetails .download-link:hover {
+    background-color: #76e1d3;
+}
+
+@media screen and (max-width: 768px) {
+    #pdfDetails {
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #pdfDetails {
+        margin: 80px auto 20px;
+    }
+}
+
+/* Navigation styles */
+nav {
+    padding: 7px 2px;
+    position: relative;
+    width: 100%;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3px;
+}
+
+.logo img {
+    border-radius: 10px;
+}
+
+.logo h1 {
+    font-size: 17px;
+}
+
+/* Navigation menu styles */
+.dropdown ul {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    background-color: #76e1d3;
+    align-items: center;
+    z-index: 100;
+}
+
+.dropdown ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.dropdown ul li:hover {
+    background-color: lightgray;
+}
+
+
+.dropdown ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 22px;
+}
+
+.dropdown ul.show {
+    display: flex;
+}
+
+.Profile {
+    width: 20px;
+    height: 20px;
+    padding-top: 5px;
+
+}
+
+li img {
+    width: 20px;
+    height: 20px;
+}
+
+.signlog {
+    display: flex;
+}
+
+.signupdrop ul {
+    display: none;
+    position: absolute;
+    top: 32px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: 6px 5px 12px black;
+}
+
+.signupdrop {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    align-items: center;
+}
+
+.signupdrop ul li {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 5px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.signupdrop ul li a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: start;
+    gap: 9px;
+    align-items: center;
+    width: 100%;
+}
+
+.signupdrop ul li:hover {
+    background-color: lightgray;
+}
+
+.signup-toggle {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 10px;
+}
+
+.signupdrop ul.show {
+    display: flex;
+}
+
+.filter-toggle {
+    z-index: 100;
+}
+
+.filters ol {
+    display: none;
+    position: absolute;
+    top: 68px;
+    right: 26px;
+    background-color: white;
+    color: black;
+    width: 40vw;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding-left: 0px;
+    box-shadow: -6px 5px 12px black;
+
+}
+
+.filters ol li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 0px;
+    padding-left: 10px;
+    /* Adjust this value as needed */
+    padding-right: 10px;
+    /* Adjust this value as needed */
+    border-radius: 5px;
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
+    text-align: var(150px);
+}
+
+.filters ol li a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+.filter-toggle {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 17px;
+}
+
+.filters ol.show {
+    display: flex;
+}
+
+.filters ol li:hover {
+    background-color: lightgray;
+}
+
+.login {
+    background-color: transparent;
+    border: none;
+    font-size: 10px;
+}
+
+.login a {
+    text-decoration: none;
+    color: white;
+
+}
+
+/* Cart */
+.cart-box {
+    position: relative;
+}
+
+.item-In-Cart {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    color: white;
+    border-radius: 20%;
+    font-size: 8px;
+    padding: 0px 2px;
+}
+
+@media screen and (min-width: 700px) {
+
+    .dropdown ul {
+        width: 20vw;
+        top: 82px;
+        left: 40px;
+    }
+
+    .dropdown ul li {
+        padding-left: 10px;
+    }
+
+    .filters ol {
+        width: 20vw;
+        top: 82px;
+        right: 70px;
+    }
+
+    .signupdrop ul {
+        width: 20vw;
+        top: 46px;
+        right: 70px;
+    }
+
+    .Profile {
+        width: 30px;
+        height: 30px;
+    }
+
+    .login {
+        font-size: 17px;
+    }
+
+    .signup-toggle {
+        font-size: 17px;
+    }
+    .pdf {
+        width: 20%;
+    }
+    #pdfList {
+        flex-direction: row;
+    }
+}
+
+@media screen and (min-width: 1300px) {
+    .dropdown ul {
+        width: 10vw;
+    }
+
+    .filters ol {
+        width: 10vw;
+    }
+
+    .signupdrop ul {
+        width: 10vw;
+    }
+}

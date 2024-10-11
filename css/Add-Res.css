@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  /* background-color: gray; */
+}
+
+header {
+  background-color: #16a290;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+}
+
+#ChatBot-Box {
+  visibility: hidden;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+main {
+  padding: 1em;
+}
+
+
+
+@keyframes view {
+  from {
+    opacity: 0.6;
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+
+
+.header {
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+@media screen and (min-width: 700px) {
+  .form-container {
+    max-width: 100%;
+    padding: 15px;
+    margin-top: 94px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 8px;
+  }
+
+  .form-group button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+#restaurantForm {
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 15px
+}
+
+.restaurant-item {
+  text-align: center;
+  margin: 10px;
+}
+
+.restaurant-image {
+  max-width: 100%;
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.form-container {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  padding-top: 80px;
+  align-content: center;
+  margin: auto;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #16a290;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group button {
+  background-color: #16a290;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.form-group button:hover {
+  background-color: #126e62;
+}

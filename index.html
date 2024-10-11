@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhanaDotCom</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/FoodLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/Font.css" />
+    <link rel="stylesheet" href="css/Cart.css" />
+    <link rel="stylesheet" href="css/HeadAndFoot.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="poppins-regular">
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="navlogo">
+                    <img width="30" src="images/logo.png" alt="Logo">
+                    <span>KhanaDotCom</span>
+                </div>
+
+                <div class="signlog">
+
+                    <!-- Restaurant Owner Dashboard -->
+                    <button class="restaurant-owner-links poppins-regular">Dashboard</button>
+
+                    <button class="login loginButton poppins-regular"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop poppins-regular">
+                        <button class="signup-toggle poppins-regular" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="Cart.html">Cart</a>
+                </li>
+                <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a>
+                </li>
+                <li><a href="poll.html"><img src="images/Login.png" alt="">Poll</a> </li>
+            </ul>
+            <input type="search" placeholder="search" class="searchbar poppins-regular" tabindex="-1">
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+
+    <!-- ChatBot -->
+    <div class="ChatBot">
+        <button class="bot-toggle" id="bot-toggle"><img width="24" height="23" src="images/Chat.png"
+                alt="Chat"></button>
+        <iframe class="ChatBot-Box" id="ChatBot-Box"
+            src="https://bot.dialogflow.com/f636d101-b438-4791-b599-541b60f71404">adfgauofiuitiuhiurhui</iframe>
+    </div>
+
+    <!-- Restaurant-Owner-Dashboard  -->
+    <div class="restaurant-dashboard">
+        <div class="close-dash-cont">
+            <div class="first">--</div>
+            <div>Dashboard</div>
+            <span class="close-dash">&times;</span>
+        </div>
+        <div class="add-buttons-cont">
+            <button class="add-res poppins-regular"><a href="AddRes.html">Add Restaurant</a></button>
+            <button class="add-menu poppins-regular"><a href="AddMenu.html">Add Menu</a></button>
+        </div>
+    </div>
+
+    <main class="main-content">
+        <section>
+            <!-- Logout Popup -->
+            <div id="logoutPopup" class="popup">
+                <div class="popup-content">
+                    <p>Do you really want to logout?</p>
+                    <button id="confirmLogout" class="poppins-regular">Yes</button>
+                    <button id="cancelLogout" class="poppins-regular">No</button>
+                </div>
+            </div>
+
+            <!-- Add to cart Popup  -->
+            <div id="added-item-modal" class="cartCont">
+                <div id="added-item-modal-button">
+                    <div class="itemCount"></div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="40px"
+                            fill="#FFFFFF">
+                            <path d="m296-345-56-56 240-240 240 240-56 56-184-183-184 183Z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="cart-head">
+                    <div class="heading-added">Added Items</div>
+                    <div id="close-modal-button"><svg xmlns="http://www.w3.org/2000/svg" height="30px"
+                            viewBox="0 -960 960 960" width="30px" fill="#FFFFFF">
+                            <path
+                                d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+                        </svg></div>
+                </div>
+                <div class="addedItem"></div>
+            </div>
+
+            <!-- Category Slider -->
+            <div class="slider">
+                <div class="slides">
+                    <!-- Slide 1 -->
+                    <div class="slide">
+                        <a href="#"><img
+                                src="https://madhuratalks.com/wp-content/uploads/2024/02/Restaurants-in-Vijayawada.jpg"
+                                alt="Offer 1" /></a>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <a href="#"> <img src="images/Banner2.jpg" alt="Offer 2" /></a>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <a href="#"><img src="images/Banner3.jpg" alt="Offer 3" /></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restaurant -->
+            <div id="restaurant-list"></div>
+
+            <!-- Restaurant Modal HTML -->
+            <div id="restaurant-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-head">
+                        <div id="modal-restaurant-name"></div>
+                        <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-details">
+                        <img id="modal-restaurant-image" alt="Restaurant Image">
+                        <div>
+                            <p id="modal-restaurant-description"></p>
+                            <button id="open-menu-button" class="poppins-regular">Menu</button>
+                        </div>
+                    </div>
+                    <!-- Rating Form -->
+                    <div class="rating-section poppins-regular" id="rating-section"></div>
+                </div>
+            </div>
+
+            <!-- Shipping BEnifits -->
+            <div class="shipping">
+                <div>24*7 Delivery</div>
+                <div>₹50 Delivery</div>
+                <div>Fast Delivery</div>
+                <div>24*7 Delivery</div>
+            </div>
+
+            <!-- Categories -->
+            <div class="category" id="category">
+                <!-- Initial items will be loaded here -->
+            </div>
+
+            <!-- Loader -->
+            <div id="loader" class="loader">Loading...</div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section contact">
+                <h2>Contact</h2>
+                <div>
+                    <p>Email: support@kdc.com</p>
+                    <p>Phone: +123-456-7890</p>
+                </div>
+            </div>
+            <div class="footer-section social-media">
+                <h2>Social Media</h2>
+                <a href="https://www.linkedin.com" target="_blank"><img src="images/LinkedIn.webp" alt="LinkedIn"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/Insta.webp" alt="Instagram"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="images/FB.webp" alt="Facebook"></a>
+            </div>
+            <div class="footer-section privacy">
+                <h2>Privacy Policy</h2>
+                <p><a href="privacy.html">Read our Privacy Policy</a></p>
+            </div>
+        </div>
+        <p>&copy; 2024 KhanaDotCom. All rights reserved.</p>
+    </footer>
+    <script src="js/auth.js"></script>
+    <script src="js/addedItems.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#ChatBot-Box{
+    visibility: hidden;
+}
+
+.poll {
+    padding-top: 18px;
+    padding-bottom: 9px;
+}
+
+.poll-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 0 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.poll-question {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.poll-option {
+    margin-bottom: 15px;
+}
+
+.poll-button {
+    display: block;
+    width: 84%;
+    margin: auto;
+    padding: 10px;
+    background-color: #16a290;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.poll-button:hover {
+    background-color: #76e1d3;
+}
+
+.searchbar {
+    width: 42%;
+    border: 1px solid white;
+    border-radius: 6px;
+    background-color: transparent;
+    color: white;
+    padding: 1px 5px;
+}
+
+.searchbar::placeholder {
+    color: white;
+    opacity: 0.7;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    margin: auto;
+    gap: 6px;
+}
+.pagination button {
+    background-color: #16a290;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.pagination button:disabled {
+    background-color: #ccc;
+}
+.pagination button:hover:not(:disabled) {
+    background-color: #76e1d3;
+}
+#previous-page , #next-page{
+    width: 63%;
+}
+
+header {
+    background-color: #16a290;
+    color: #fff;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@media screen and (min-width: 700px) {
+    #previous-page , #next-page{
+        width: 14%;
+    }
+}

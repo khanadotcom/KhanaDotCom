@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="css/pdf.css">
+    <link rel="stylesheet" href="css/Font.css" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body class="poppins-regular">
+    <header>
+        <nav>
+            <div class="logo">
+                <img width="30" src="images/logo.png" alt="Logo">
+                <h1>KhanaDotCom</h1>
+                <div class="signlog">
+                    <button class="login loginButton"><a href="login.html">LogIn</a></button>
+                    <div class="signupdrop">
+                        <button class="signup-toggle" id="signup-toggle">SignUp</button>
+                        <ul id="sign-menu" class="sign-menu">
+                            <li><a href="customer.html">Customer</a></li>
+                            <li><a href="deliverylogin.html">Delivery Person</a></li>
+                            <li><a href="restaurantlogin.html">Restaurant</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="dropdown">
+            <button class="menu-toggle" id="menu-toggle"><img src="images/Menu.webp" alt="" width="27"></button>
+            <ul id="nav-menu" class="mobile-menu">
+                <li><a href="index.html"><img src="images/Home.png" alt="">Home</a> </li>
+                <li><a href="menu.html"><img src="images/Menu.webp" alt="">Menu</a> </li>
+                <li>
+                    <div class="cart-box">
+                        <img src="images/Cart.png" alt="">
+                        <span class="item-In-Cart" id="itemincart">0</span>
+                    </div>
+                    <a href="">Cart</a>
+                </li>
+                <li><a href="OrderHistory.html"><img src="images/Order.png" alt="">Orders</a> </li>
+                <li><a href="profile.html"><img src="images/Profile.jpg" alt="">Profile</a> </li>
+                <li><a href="t&c.html"><img src="images/Help.webp" alt="">Help/Support</a> </li>
+                <li><a href="login.html"><img src="images/Login.png" alt=""><span class="loginButton">Login</span></a> </li>
+            </ul>
+
+            <div class="filters">
+                <button class="filter-toggle" id="filter-toggle">Filters</button>
+                <ol id="filter-menu" class="filter-menu">
+                    <li>Dhaba <input type="checkbox"></li>
+                    <li>Most Rated <input type="checkbox"></li>
+                    <li>Chinese Retro <input type="checkbox"></li>
+                    <li>Subway <input type="checkbox"></li>
+                </ol>
+            </div>
+        </div>
+    </header>
+
+    <h1 class="Pdf-Heading">Pdf Collections</h1>
+    <div id="pdfList"></div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        const navMenu = document.getElementById('nav-menu');
+        const filterMenu = document.getElementById('filter-menu');
+        const SignupMenu = document.getElementById('sign-menu');
+
+        document.getElementById('menu-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            navMenu.classList.toggle('show');
+            filterMenu.classList.remove("show");
+            SignupMenu.classList.remove("show");
+        });
+
+        document.getElementById('filter-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            filterMenu.classList.toggle('show');
+            navMenu.classList.remove("show");
+            SignupMenu.classList.remove("show");
+        });
+
+        document.getElementById('signup-toggle').addEventListener('click', function (event) {
+            event.stopPropagation();
+            SignupMenu.classList.toggle('show');
+            navMenu.classList.remove("show");
+            filterMenu.classList.remove("show");
+        });
+
+        document.addEventListener('click', function (event) {
+            const navMenu = document.getElementById("nav-menu");
+            const filterMenu = document.getElementById('filter-menu');
+            const SignupMenu = document.getElementById('sign-menu');
+
+            if (!navMenu.contains(event.target) && !filterMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
+                navMenu.classList.remove("show");
+                filterMenu.classList.remove("show");
+                SignupMenu.classList.remove("show");
+            }
+        })
+
+        document.addEventListener('DOMContentLoaded', function() {
+    let pdfs = JSON.parse(localStorage.getItem('pdfs')) || [];
+    let pdfList = document.getElementById('pdfList');
+
+    if (pdfs.length > 0) {
+        pdfs.forEach(function(pdf, index) {
+            let pdfDiv = document.createElement('div');
+            pdfDiv.classList.add('pdf');
+            pdfDiv.setAttribute('data-index', index);
+
+            let title = document.createElement('h2');
+            title.textContent = pdf.title;
+            pdfDiv.appendChild(title);
+
+            let subtitle = document.createElement('h3');
+            subtitle.textContent = pdf.subtitle;
+            pdfDiv.appendChild(subtitle);
+
+            let description = document.createElement('p');
+            description.textContent = pdf.description;
+            pdfDiv.appendChild(description);
+
+            let detailsButton = document.createElement('button');
+            detailsButton.textContent = "Details";
+            detailsButton.classList.add("pdf-detailsbut")
+            detailsButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                window.location.href = `pdf-details.html?index=${index}`;
+            });
+            pdfDiv.appendChild(detailsButton);
+
+            pdfDiv.addEventListener('click', function() {
+                window.location.href = `pdf-details.html?index=${index}`;
+            });
+
+            pdfList.appendChild(pdfDiv);
+        });
+    } else {
+        pdfList.textContent = 'No PDFs found.';
+    }
+});
+
+    </script>
+</body>
+
+</html>

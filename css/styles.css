@@ -1,0 +1,766 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #16a290;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+.heading {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.ChatBot {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    border-radius: 50%;
+}
+
+.bot-toggle {
+    border-radius: 50%;
+    background-color: #76e1d3;
+    height: 38px;
+}
+
+.ChatBot-Box {
+    display: none;
+    position: absolute;
+    background-color: white;
+    color: black;
+    box-shadow: 6px 5px 12px black;
+    z-index: 10;
+    bottom: 47px;
+    right: 24px;
+    height: 364px;
+    width: 246px;
+}
+
+.ChatBot-Box.show {
+    display: flex;
+}
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+#modal-restaurant-name{
+    font-weight: 700;
+    font-size: large;
+    color: gray;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 20px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -32%);
+}
+
+.modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: start;
+}
+
+#modal-restaurant-image {
+    height: 190px;
+    width: 284px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+#open-menu-button {
+    background-color: #16a290;
+    color: white;
+    font-size: 16px;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#open-menu-button:hover {
+    background-color: #107567;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    height: 100vh;
+    gap: 15px;
+
+}
+
+#menu-modal {
+    background-color: white;
+    border-radius: 20px;
+    padding-top: 50px;
+    width: 90%;
+    height: 90%;
+    margin-left: 50px;
+}
+
+.menu-item {
+    width: 150px;
+    height: 263px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    box-shadow: 2px 2px 12px black;
+}
+
+.details {
+    width: 90%;
+}
+
+.menu-item h1 {
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;/
+}
+
+.menu-item p {
+    font-size: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.menu-item .price {
+    font-size: 18px;
+}
+
+.menu-item .imgcont {
+    width: 100%;
+    box-shadow: 2px 2px 8px gray;
+    height: 140px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+}
+
+.menu-item-image {
+    width: 100%;
+    height: 140px;
+    object-fit: contain;
+    object-position: center;
+    padding: 0px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+section {
+    margin-top: 82px;
+}
+
+.slider {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slides {
+    display: flex;
+    transition: transform 1s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+    height: 100px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100px;
+    filter: brightness(0.85);
+    transition: filter 0.5s ease-in-out;
+}
+
+.slide img:hover {
+    filter: brightness(1);
+    /* Brightens image on hover */
+}
+
+main {
+    padding: 1em;
+}
+
+.shipping {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin: auto;
+    padding-top: 30px;
+    font-size: 10px;
+
+}
+
+.shipping div {
+    border: 1px solid red;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.category {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.burger {
+    width: 47%;
+    border: 1px solid gray;
+    height: 220px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: white;
+    animation: view linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 40%;
+}
+
+@keyframes view {
+    from {
+        opacity: 0.6;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.items {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.item {
+    width: 47%;
+    border: 1px solid gray;
+    height: 220px;
+    text-align: center;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.item button a {
+    text-decoration: none;
+    color: black;
+}
+
+.item button {
+    background-color: gray;
+    padding: 5px 14px;
+    border-radius: 3px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.menu {
+    text-align: center;
+    font-size: 52px;
+    margin-top: -21px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+.main h2 {
+    background-color: gray;
+    border-radius: 3px;
+}
+
+/* Add this to your styles.css */
+
+.order-summary-container {
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    margin-top: 92px;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 10px gray;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-details {
+    font-size: small;
+    padding: 0 20px;
+}
+
+.order-details p {
+    margin-bottom: -10px;
+}
+
+.order-items {
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.order-pricing {
+    padding-left: 17px;
+    font-size: 12px;
+}
+
+.order-pricing h2 {
+    width: 90%;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.finalprice {
+    width: 90%;
+    border-top: 2px solid #ddd;
+    margin-top: 10px;
+    padding-top: 5px;
+
+}
+
+.order-details h1,
+.order-items h2 {
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.Details {
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 10px;
+
+}
+
+.item-img {
+    width: 25%;
+}
+
+
+.Details:last-child {
+    border-bottom: none;
+}
+
+.Details p {
+    margin: 10px 0;
+    display: flex;
+}
+
+.order-pricing p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.order-pricing p:last-child {
+    font-size: 1.2em;
+    color: #333;
+}
+
+
+#restaurant-list {
+    display: flex;
+    justify-content: space-around;
+    /* overflow-x: hidden; */
+    margin-top: 10px;
+    /* white-space: nowrap; */
+    /* cursor: grab; */
+    flex-wrap: wrap;
+
+}
+
+.restaurant-item {
+    text-align: center;
+    animation: scroll-left 15s linear infinite;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 146px;
+    user-select: none;
+}
+
+/* @keyframes scroll-left {
+    0% {
+        transform: translateX((1%))
+    }
+
+    100% {
+        transform: translateX(-1620%);
+    }
+} */
+
+#restaurant-list:active {
+    cursor: grabbing;
+    animation-play-state: paused;
+}
+
+.restaurant-item h3 {
+    background-color: lightgray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    width: 100%;
+    font-size: 15px;
+    display: flex;
+    margin-top: -7px;
+}
+
+.restaurant-image {
+    user-select: none;
+    width: 140px;
+    height: 120px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+}
+
+
+#confirmLogout {
+    background-color: #76e1d3;
+}
+
+/* Rating css */
+.rating-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+
+#rating {
+    display: none;
+}
+
+#rating-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#rating-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+}
+
+#rating-form input[type="number"],
+#rating-form textarea {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s;
+}
+
+#rating-form input[type="number"]:focus,
+#rating-form textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+#rating-form button {
+    align-self: flex-start;
+    background-color: #16a290;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#rating-form button:hover {
+    background-color: #107567;
+}
+
+#rating-message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #28a745;
+}
+
+#rating-error {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff0000;
+}
+
+/* Rating star*/
+.fa-star {
+    cursor: pointer;
+    color: gray;
+    font-size: 30px;
+}
+
+#comment {
+    resize: none;
+    width: 100%;
+    height: auto;
+}
+
+.highlighted {
+    color: gold;
+}
+
+.rating-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.rating-head {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media screen and (min-width: 700px) {
+    .item-img {
+        width: 11%;
+    }
+
+    .items {
+        width: 85%;
+        gap: 50px;
+    }
+
+    .item {
+        width: 25%;
+    }
+
+    .menu {
+        font-size: 100px;
+        margin-top: -30px;
+    }
+
+    .shipping {
+        width: 85%;
+        font-size: 17px;
+    }
+
+    .category {
+        width: 85%;
+        gap: 70px;
+    }
+
+    .burger {
+        width: 25%;
+    }
+
+    .products {
+        width: 85%;
+        gap: 50px;
+    }
+
+    .product {
+        width: 25%;
+    }
+
+    .order-details {
+        font-size: 12px;
+        padding: 0 20px;
+    }
+
+    .ChatBot {
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+    }
+
+    .bot-toggle {
+        border-radius: 50%;
+        height: 38px;
+    }
+
+    .ChatBot-Box {
+        right: 45px;
+        height: 430px;
+        width: 350px;
+    }
+
+    section {
+        margin-top: 108px;
+    }
+
+    .order-summary-container {
+        margin-top: 70px;
+        margin-bottom: 70px;
+        padding-top: 20px;
+    }
+
+    .slider {
+        max-width: 100%;
+    }
+
+    .slide {
+        height: 150px;
+    }
+
+    .slide img {
+        height: 200px;
+    }
+
+    .restaurant-item {
+        height: 246px;
+    }
+
+    .restaurant-item h3 {
+        height: 20%;
+    }
+
+    .restaurant-image {
+        width: 240px;
+        height: 200px;
+    }
+
+    .rating-section {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    #rating-form button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    #rating-form input[type="number"],
+    #rating-form textarea {
+        font-size: 13px;
+    }
+
+    .rating-section h4 {
+        font-size: 18px;
+    }
+    .modal-details {
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .modal-content {
+        transform: translate(-50%, -37%);
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1900px) {
+    #modal-restaurant-name{
+        font-size: x-large;
+    }    
+    .modal-content {
+        transform: translate(-50%, -43%);
+    }
+}
