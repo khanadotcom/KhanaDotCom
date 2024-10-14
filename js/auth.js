@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         else if (userType === 'customer') {
                             const cartPopup = document.querySelector('.cartCont')
                             if (cartPopup) cartPopup.style.display = 'block'
-                           
+
                             document.addEventListener("menuRendered", function () {
                                 const cartButtons = document.querySelectorAll('.cart');
                                 if (cartButtons.length > 0) {
@@ -99,7 +99,7 @@ document.getElementById('signup-toggle').addEventListener('click', function (eve
 });
 
 document.addEventListener('click', function (event) {
-    if (!navMenu.contains(event.target) && !SignupMenu.contains(event.target) ) {
+    if (!navMenu.contains(event.target) && !SignupMenu.contains(event.target)) {
         navMenu.classList.remove("show");
         SignupMenu.classList.remove("show");
     }
@@ -155,3 +155,18 @@ CloseDashboardPopup.addEventListener('click', function () {
     DashboardPopup.style.display = 'none'
     MainContent.classList.remove('blurred')
 })
+
+// Multipurpus popup 
+function MultiPopup(message, type = 'info', duration = 1500) {
+    const MultiPopup = document.createElement('div')
+    MultiPopup.className = `MultiPopup ${type}`
+    MultiPopup.className = `MultiPopup `
+    MultiPopup.textContent = message;
+    document.body.appendChild(MultiPopup)
+    MultiPopup.style.display = 'flex'
+
+    setTimeout(() => {
+        MultiPopup.style.display = 'none'
+        MultiPopup.remove();
+    }, duration);
+}

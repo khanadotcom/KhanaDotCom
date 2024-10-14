@@ -82,10 +82,10 @@ header {
     border: 1px solid #888;
     width: 80%;
     border-radius: 20px;
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -32%);
+    overflow-y: scroll;
 }
 
 .modal-details {
@@ -97,7 +97,7 @@ header {
 
 #modal-restaurant-image {
     height: 190px;
-    width: 284px;
+    width: 100%;
     border: 1px solid lightgray;
     border-radius: 10px;
     object-fit: cover;

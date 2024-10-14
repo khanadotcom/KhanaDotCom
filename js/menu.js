@@ -155,6 +155,7 @@ function displayMenuForCustomer(menuItem, cartItemIds) {
             }
 
             const data = await response.json();
+            MultiPopup('Item added', 'success', 1500)
             console.log('Item added to cart:', data);
             fetchAddedItem();
             fetchAddedItemForButton()
