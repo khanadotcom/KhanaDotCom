@@ -44,19 +44,53 @@ async function fetchAddedItem() {
                 itemDiv.classList.add('cart-item');
                 const imageUrl = `https://khanadotcom.in:8000${item.menu_item.menu_item_pic}`
                 itemDiv.innerHTML = `
-                <div class='cart-list-item'>
-                <img src='${imageUrl}' alt='Item Pic' class='cartItemImage'/>
+                <div class='cart-list-item ' id='detailsPage-${item.id}'>
+                 <img src='${imageUrl}' alt='Item Pic' class='cartItemImage'/>
                 <div class='cart-list-item-details'>
-                <h3>${item.menu_item.name}</h3>
-                <p>Quantity: ${item.quantity}</p>
-                <p>Total Price: ₹${item.total_price}</p>
-                <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
+                  <h3>${item.menu_item.name}</h3>
+                  <div class='quantityContainer'>
+                    <div>Quantity:</div> 
+                     <div class='quantity'>
+                      <button class='minus poppins-regular' data-id='${item.id}' id='minus-${item.id}'>-</button>
+                      ${item.quantity}
+                      <button class='plus poppins-regular' data-id='${item.id}' id='plus-${item.id}'>+</button>
+                     </div>
+                    </div>
+                    <p>Total Price: ₹${item.total_price}</p>
+                    <button class='removeItem poppins-regular' data-cart-id='${item.id}' data-added-to-cart='true'>Remove</button>
                 </div>
                 </div>
                 `;
 
                 // Append the item to the container
                 addedItemsCont.appendChild(itemDiv);
+
+                // Event Listener for details page from cart 
+                document.getElementById(`detailsPage-${item.id}`).addEventListener('click',()=>{
+                    window.location.href=`details.html?restaurant_id=${item.menu_item.restaurant}&itemID=${item.menu_item.menu_item_id}`
+                })
+
+                // Increasing quantity in cart 
+                document.getElementById(`plus-${item.id}`).addEventListener('click', (e) => {
+                    const cartId = item.id;
+                    const currentQuantity = item.quantity;
+                    const newQuantity = currentQuantity + 1;
+                    const menuItemId = item.menu_item.menu_item_id;
+                    changeQuantity(cartId, menuItemId, newQuantity);
+                    e.stopPropagation();
+                    MultiPopup('Quantity Increased', 1500);
+                });
+
+                // Decreasing quantity in cart 
+                document.getElementById(`minus-${item.id}`).addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const cartId = item.id;
+                    const currentQuantity = item.quantity;
+                    const newQuantity = currentQuantity - 1;
+                    const menuItemId = item.menu_item.menu_item_id;
+                    changeQuantity(cartId, menuItemId, newQuantity);
+                    MultiPopup('Quantity Decreased', 1500);
+                });
             });
             addRemoveEventListener()
         } else {
@@ -75,7 +109,7 @@ async function fetchAddedItem() {
                 list.style.display = 'block';
                 setTimeout(() => {
                     list.classList.add('show');
-                }, 10); 
+                }, 10);
             }
         });
 
@@ -92,9 +126,11 @@ function addRemoveEventListener() {
     if (removeButton.length > 0) {
         removeButton.forEach(button => {
             button.addEventListener('click', (event) => {
+                event.stopPropagation();
                 const cartId = event.currentTarget.dataset.cartId;
                 removeItem(cartId)
                 fetchAddedItem()
+                fetchAddedItemForButton()
             })
         })
     } else {
@@ -115,9 +151,62 @@ async function removeItem(cartId) {
         if (!response.ok) {
             throw new Error('Error is response')
         }
-        fetchAddedItem()
+        MultiPopup('Item Removed', 1500)
+        await fetchAddedItem()
+        await fetchAddedItemForButton()
+        const cart = document.querySelector('.Detailscart')
+        cart.innerText = 'Add'
+
     } catch (error) {
         throw new Error('Error removing the item.')
+    }
+
+}
+async function fetchAddedItemForButton() {
+    const token = localStorage.getItem('accessToken');
+    try {
+        const response = await fetch(`https://khanadotcom.in:8000/cart/`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!response.ok) {
+            throw new Error('Response was not ok');
+        }
+        const data = await response.json();
+
+        const cartItemIds = data.items.map(item => item.menu_item.menu_item_id);
+        console.log(cartItemIds);
+
+        return cartItemIds;
+
+    } catch (error) {
+        console.error('Error fetching added items:', error);
+    }
+}
+
+// Change Quantity in cart function 
+async function changeQuantity(cartId, menuItemId, newQuantity) {
+    const token = localStorage.getItem('accessToken')
+    try {
+        const response = await fetch(`https://khanadotcom.in:8000/cart/item/${cartId}/`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ menu_item_id: menuItemId, quantity: newQuantity })
+        })
+
+        if (!response.ok) {
+            throw new Error('There was an issue in response')
+        }
+        await fetchAddedItem();
+        await fetchAddedItemForButton()
+    } catch (error) {
+        throw new Error('Error in fetching the item', error)
     }
 }
 

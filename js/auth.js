@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             if (cartPopup) cartPopup.style.display = 'block'
 
                             document.addEventListener("menuRendered", function () {
-                                const cartButtons = document.querySelectorAll('.cart');
+                                const cartButtons = document.querySelectorAll('.Menucart');
                                 if (cartButtons.length > 0) {
                                     cartButtons.forEach(button => {
                                         button.style.display = 'block';  // Show cart buttons for customer
@@ -157,10 +157,9 @@ CloseDashboardPopup.addEventListener('click', function () {
 })
 
 // Multipurpus popup 
-function MultiPopup(message, type = 'info', duration = 1500) {
+function MultiPopup(message, duration = 1500) {
     const MultiPopup = document.createElement('div')
-    MultiPopup.className = `MultiPopup ${type}`
-    MultiPopup.className = `MultiPopup `
+    MultiPopup.className = `MultiPopup`
     MultiPopup.textContent = message;
     document.body.appendChild(MultiPopup)
     MultiPopup.style.display = 'flex'
